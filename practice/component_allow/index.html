@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    <title>ARROW演算子</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      class Hello extends React.Component {
+        render() {
+          const clickHandler = e => {
+            alert('Hello React')
+          }
+          return (
+            <div onClick={clickHandler} style={{ margin: '0 auto' }}>
+              Click Me
+            </div>
+          )
+        }
+      }
+
+      // 描画
+      const root = document.getElementById('root')
+      // DOMを書き換え
+      ReactDOM.render(<Hello />, root)
+    </script>
+  </body>
+</html>

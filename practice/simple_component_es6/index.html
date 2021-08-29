@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    <title>PHOTO TEXT</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // classでcomponent作成
+      class PhotoText extends React.Component {
+        getImageUrl() {
+          return 'img/' + this.props.image + '.jpg'
+        }
+
+        render() {
+          return (
+            <div style={{ border: '1px solid silver', margin: '8px', padding: '4px', width: '50%' }}>
+              <img src={this.getImageUrl()} width="256" />
+              <p>{this.props.label}</p>
+            </div>
+          )
+        }
+      }
+
+      // componentを利用
+      const dom = (
+        <div>
+          <PhotoText image="pic1" label="sea shore" />
+          <PhotoText image="pic2" label="open ocean" />
+          <PhotoText image="pic3" label="blue ocean" />
+        </div>
+      )
+
+      // 描画
+      const root = document.getElementById('root')
+      // DOMを書き換え
+      ReactDOM.render(dom, root)
+    </script>
+  </body>
+</html>
