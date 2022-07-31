@@ -23,4 +23,13 @@ describe('Pagination', () => {
     // ユーザーの操作
     fireEvent.click(screen.queryByText(/next/));
   });
+
+  test('currentIndexが1以下の時、prevボタンがdisabledになる3', () => {
+    render(<Pagination max={5} />);
+    expect(screen.queryByText(/prev/)).toBeDisabled();
+    fireEvent.click(screen.queryByText(/next/));
+    expect(screen.queryByText(/prev/)).toBeEnabled();
+    fireEvent.click(screen.queryByText(/prev/));
+    expect(screen.queryByText(/prev/)).toBeDisabled();
+  });
 })
